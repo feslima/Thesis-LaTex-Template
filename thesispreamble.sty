@@ -1,0 +1,83 @@
+\ProvidesPackage{thesispreamble}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%-------------------------------------------------------------------------------
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+
+\usepackage{mathpazo} % Use the Palatino font by default
+\usepackage{nomencl}  % List of symbols, constants, etc
+\makenomenclature
+
+%-------------------------------------------------------------------------------
+%   NOMENCLATURE (SYMBOLS, CONSTANTS, ETC)
+%-------------------------------------------------------------------------------
+
+% This code creates the groups
+\usepackage{etoolbox}
+\newif\iffirstglossary\firstglossarytrue
+\renewcommand\nomgroup[1]{%
+\iffirstglossary
+    \firstglossaryfalse
+\else
+    \clearpage
+\fi
+\item[]% <=============================================================
+{\Huge % <======================================
+\ifstrequal{#1}{A}{%
+    List of Abbreviations and Acronyms%
+}{%
+    \ifstrequal{#1}{S}{List of Symbols}{}%
+}%
+\hfil} % <==========================================================
+%] % <==================================================================
+}
+
+\renewcommand{\nomname}{}
+% -----------------------------------------
+
+\usepackage[backend=biber,style=authoryear,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+
+\addbibresource{example.bib} % The filename of the bibliography
+
+\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+
+%----------------------------------------------------------------------------------------
+%	MARGIN SETTINGS
+%----------------------------------------------------------------------------------------
+
+\geometry{
+	paper=a4paper, % Change to letterpaper for US letter
+	inner=3cm, % Inner margin
+	outer=2cm, % Outer margin
+	bindingoffset=.5cm, % Binding offset
+	top=3cm, % Top margin
+	bottom=2cm, % Bottom margin
+	%showframe, % Uncomment to show how the type block is set on the page
+}
+
+%----------------------------------------------------------------------------------------
+%	THESIS INFORMATION
+%----------------------------------------------------------------------------------------
+
+\thesistitle{Dissertation Title} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
+\supervisor{Dr. Antônio Carlos Brandão de \textsc{Araújo}} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
+\examiner{} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
+\degree{Master of Chemical Engineering} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
+\author{Felipe Souza \textsc{Lima}} % Your name, this is used in the title page and abstract, print it elsewhere with \authorname
+\addresses{} % Your address, this is not currently used anywhere in the template, print it elsewhere with \addressname
+
+\subject{Biological Sciences} % Your subject area, this is not currently used anywhere in the template, print it elsewhere with \subjectname
+\keywords{} % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
+\university{\href{http://www.university.com}{Federal University of Campina Grande}} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
+\department{\href{http://department.university.com}{Department or Chemical Engineering}} % Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \deptname
+\group{\href{http://researchgroup.university.com}{Laboratory of Numerical Experimentation of Processes (LENP)}} % Your research group's name and URL, this is used in the title page, print it elsewhere with \groupname
+\faculty{\href{http://faculty.university.com}{Faculty Name}} % Your faculty's name and URL, this is used in the title page and abstract, print it elsewhere with \facname
+
+\AtBeginDocument{
+\hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
+\hypersetup{pdfauthor=\authorname} % Set the PDF's author to your name
+\hypersetup{pdfkeywords=\keywordnames} % Set the PDF's keywords to your keywords
+}
