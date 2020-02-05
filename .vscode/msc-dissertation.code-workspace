@@ -53,7 +53,7 @@
 				"args": [
 					"-synctex=1",
 					"-interaction=nonstopmode",
-					"-aux-directory=%DIR%/Auxiliary",
+					"-aux-directory=%DIR%/auxiliary",
 					"-file-line-error",
 					"%DOC%"
 				],
@@ -63,7 +63,7 @@
 				"name": "bibtex",
 				"command": "bibtex",
 				"args": [
-					"%DIR%/Auxiliary/%DOCFILE%"
+					"%DIR%/auxiliary/%DOCFILE%"
 				],
 				"env": {}
 			},
@@ -71,18 +71,18 @@
 				"name": "biber",
 				"command": "biber",
 				"args": [
-					"%DIR%/Auxiliary/%DOCFILE%"
+					"%DIR%/auxiliary/%DOCFILE%"
 				]
 			},
 			{
 				"name": "makeindex",
 				"command": "makeindex",
 				"args": [
-					"Auxiliary/%DOCFILE%.nlo",
+					"auxiliary/%DOCFILE%.nlo",
 					"-s",
 					"nomencl.ist",
 					"-o",
-					"Auxiliary/%DOCFILE%.nls"
+					"auxiliary/%DOCFILE%.nls"
 				]
 			}
 		]
