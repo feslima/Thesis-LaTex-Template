@@ -259,10 +259,22 @@ expressões matemáticas numeradas:
 \begin{equation}
   \forall x \in X, \quad \exists \: y \leq \epsilon
   \label{eq:teste}
+  \nomenclature[A]{ABC}{Teste sigla}
+  \nomenclature[S]{$A_i$}{Symbol test}
 \end{equation}
 
 Escreva expressões matemáticas entre \$ e \$, como em $ \lim_{x \to \infty}
 \exp(-x) = 0 $, para que fiquem na mesma linha de \autoref{eq:teste}.
+
+Para colocar símbolos e/ou siglas, basta digitar:
+
+\begin{verbatim}
+  \nomenclature[A]{ABC}{Teste sigla}
+  \nomenclature[S]{$A_i$}{Símbolo de teste}
+\end{verbatim}
+
+Estes dois comando atualizam automaticamente as listas. Os argumentos dentro dos 
+colchetes, \verb|A| e \verb|S| definem entre sigla e símbolo, respectivamente.
 
 Também é possível usar colchetes para indicar o início de uma expressão
 matemática que não é numerada.
